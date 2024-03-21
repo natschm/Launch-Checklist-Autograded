@@ -1,50 +1,5 @@
-// // Write your helper functions here!
 
-// require('cross-fetch/polyfill');
-
-// function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-//     // Here is the HTML formatting for our mission target div.
-//     /*
-//                  <h2>Mission Destination</h2>
-//                  <ol>
-//                      <li>Name: </li>
-//                      <li>Diameter: </li>
-//                      <li>Star: ${star}</li>
-//                      <li>Distance from Earth: </li>
-//                      <li>Number of Moons: </li>
-//                  </ol>
-//                  <img src="">
-//     */
-//  }
- 
-//  function validateInput(testInput) {
-    
-//  }
- 
-//  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    
-//  }
- 
-//  async function myFetch() {
-//      let planetsReturned;
- 
-//      planetsReturned = await fetch().then( function(response) {
-//          });
- 
-//      return planetsReturned;
-//  }
- 
-//  function pickPlanet(planets) {
-//  }
- 
-//  module.exports.addDestinationInfo = addDestinationInfo;
-//  module.exports.validateInput = validateInput;
-//  module.exports.formSubmission = formSubmission;
-//  module.exports.pickPlanet = pickPlanet; 
-//  module.exports.myFetch = myFetch;
-
-
- // Write your helper functions here!
+// Write your helper functions here!
 
 require('cross-fetch/polyfill');
 
@@ -63,8 +18,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     `;
 }
 
- 
- function validateInput(input) {
+
+function validateInput(input) {
     if (input === "") {
         return "Empty";
     } else if (isNaN(input)) {
@@ -73,7 +28,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
         return "Is a Number";
     }
 }
- 
+
 async function myFetch() {
     const url = 'https://handlers.education.launchcode.org/static/planets.json';
     const response = await fetch(url);
@@ -86,10 +41,19 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let fuelStatus = document.getElementById("fuelStatus");
     let cargoStatus = document.getElementById("cargoStatus");
 
-    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
+    if (
+        validateInput(pilot) === "Empty" ||
+        validateInput(copilot) === "Empty" ||
+        validateInput(fuelLevel) === "Empty" ||
+        validateInput(cargoLevel) === "Empty"
+    ) {
         alert("All fields are required!");
-    } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
+    } else if (
+        validateInput(fuelLevel) === "Not a Number" ||
+        validateInput(cargoLevel) === "Not a Number"
+    ) {
         alert("Fuel level and cargo mass must be numbers!");
+
     } else {
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
@@ -121,13 +85,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 
 
- function pickPlanet(planets) {
+function pickPlanet(planets) {
     const randomIndex = Math.floor(Math.random() * planets.length);
     return planets[randomIndex];
 }
- 
- module.exports.addDestinationInfo = addDestinationInfo;
- module.exports.validateInput = validateInput;
- module.exports.formSubmission = formSubmission;
- module.exports.pickPlanet = pickPlanet; 
- module.exports.myFetch = myFetch;
+
+module.exports.addDestinationInfo = addDestinationInfo;
+module.exports.validateInput = validateInput;
+module.exports.formSubmission = formSubmission;
+module.exports.pickPlanet = pickPlanet;
+module.exports.myFetch = myFetch;

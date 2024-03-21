@@ -1,20 +1,3 @@
-// // Write your JavaScript code here!
-
-// window.addEventListener("load", function() {
-
-//     let listedPlanets;
-//     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
-//     let listedPlanetsResponse;
-//     listedPlanetsResponse.then(function (result) {
-//         listedPlanets = result;
-//         console.log(listedPlanets);
-//     }).then(function () {
-//         console.log(listedPlanets);
-//         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
-//     })
-
-//  });
-
 // Write your JavaScript code here!
 
 window.addEventListener("load", function () {
@@ -29,8 +12,14 @@ window.addEventListener("load", function () {
         let fuelLevelInput = document.querySelector("input[name='fuelLevel']").value;
         let cargoMassInput = document.querySelector("input[name='cargoMass']").value;
 
+        // Validate pilot and co-pilot names
+        if (!isNaN(pilotNameInput) || !isNaN(copilotNameInput)) {
+            alert("Pilot and co-pilot names cannot be a number!");
+            return;
+        }
+
         formSubmission(document, document.getElementById("faultyItems"), pilotNameInput, copilotNameInput, fuelLevelInput, cargoMassInput);
-        // Additional logic to ensure faultyItems list visibility when everything is good to go
+        // Ensures faultyItems list visibility when everything is good to go
         let faultyItems = document.getElementById("faultyItems");
         if (faultyItems.style.visibility !== "visible") {
             faultyItems.style.visibility = "hidden"; // Hide faultyItems if everything is good to go
